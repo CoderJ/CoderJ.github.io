@@ -45,32 +45,34 @@ var drawLogo = function(back){
                   .append("path")
                   .attr("d", lineFunction(data))
                   .attr('fill','none')
-                  .attr("stroke", "#FFF")
+                  .attr("stroke", "#669900")
                   .attr("stroke-width", 1);
                   drawLine(lineGraph2,data,1,line2,filled);
   }
   var filled = function(){
     setTimeout(function(){
+      d3.select('body').transition().duration(2000).ease('cubic-out').style('background',"#669900");
       logo
       .selectAll("path")
       .transition()
-      .duration(1000)
-      .ease('linear')
+      .duration(2000)
+      .ease('cubic-out')
       .attr('fill','#FFF')
       .each("end", function() { if(back)back();});
-    },2000);
+    },1000);
   }
   var lineGraph1 = logo.append("g")
                 .append("path")
                 .attr("d", lineFunction(data))
                 .attr('fill','none')
-                .attr("stroke", "#FFF")
+                .attr("stroke", "#669900")
                 .attr("stroke-width", 1);
   drawLine(lineGraph1,data,1,line1,drawLine2);
 }
 drawLogo(function(){
-  d3.select('body').transition().duration(1000).style('background',"green");
 });
+
+
 </script>
 </body>
 </html>

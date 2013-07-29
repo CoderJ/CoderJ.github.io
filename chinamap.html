@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+  <title>中国地图</title>
+  <meta charset='utf-8'>
+  <script type="text/javascript" src="javascripts/d3.min.js"></script>
+  <style type="text/css">
+    
+    #china {
+ fill: #aaa;
+ stroke: #fff;
+ stroke-width: 0.5px;
+}
+#china .active {
+ fill: orange;
+}
+    #axes {
+      stroke: #BDBDBD;
+      stroke-width: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div id="vis"></div>
+  <script type="text/javascript">
+
+
+    var w = 960;
+    var h = 500;
+    var centered;
+    var proj = d3.geo.mercator().center([105, 38]).scale(550);
+    var path = d3.geo.path().projection(proj);
+    var t = proj.translate(); // the projection's default translation
+    var s = proj.scale() // the projection's default scale
+    var geos = new Array;
+    var statusText;
+    var z = d3.scale.category20c();
+    var i = 0;
+    var map = d3.select("#vis").append("svg:svg")
+        .attr("width", w)
+        .attr("height", h)
+        .call(d3.behavior.zoom().on("zoom", redraw))
+        ;
+    var china = map.append("svg:g").attr("id", "china");
+    var circles = map.append("svg:g").attr("id", "circles");
+    var text = map.append("svg:g").attr("id","text");
+    var id=100;
+    d3.json("china.json", function (json) {
+      china.selectAll("path")
+          .data(json.features)
+        .enter().append("svg:path")
+          .attr("d", path)
+          .on("mouseover", mouseover)
+          .on("mouseout", mouseout)
+          .attr('fill', function(d){
+            return z(this.__data__.id-1);
+            //return "#"+this.__data__.id+"cccc";
+          })
+          .on("dblclick", dblclick)
+          ;
+      text.selectAll("text")
+      .data(json.features)
+      .enter().append("svg:text")
+      .attr("x",function(d){
+        var cp = proj(d.properties.cp);
+        return cp[0];
+      })
+      .attr("y",function(d){
+        var cp = proj(d.properties.cp);
+        return cp[1];
+      })
+      .text(function(d){
+        return d.properties.name;
+      });
+
+    });
+    statusText = circles.append('svg:text');
+
+    /*setInterval(function(){
+      add_marker({lat:Math.random()*(50-20)+20, lng:Math.random()*(130-90)+90, ip:"220.181.151.71", city:"beijing"});                   
+    },1000);*/
+
+    function add_marker(geo)
+    {
+      //geo.ip geo.lat/lng geo.city
+      geos.push(geo);
+      china.append("svg:circle")
+        .attr("transform", function() {
+          return "translate(" + proj([geo.lng, geo.lat]) + ")";
+        })
+        .attr("r", 10)
+        .attr('stroke','red')
+        .attr('fill','orange')
+        .style("stroke-opacity", 1)
+        .transition()
+        .duration(1000)
+        .ease(Math.sqrt)
+        .attr("r", 2)
+        .style("stroke-opacity", 0)
+        .remove();
+      redraw_map();
+    }
+
+    function add_relationship(geo_f, geo_t)
+    {
+
+    }
+
+    function add_data_to_provice()
+    {
+
+    }
+
+    function add_data_to_city()
+    {
+      
+    }
+    
+    function mouseover(d,i) {
+    d3.select(this).classed("active", true);
+    }
+    function mouseout(d,i) {
+    d3.select(this).classed("active", false);
+    }
+
+    function redraw_map(){
+      c = circles.selectAll("circle").data(geos);
+      c.enter()
+        .append("svg:circle")
+        .attr('r', 2)
+        .attr('stroke','red')
+        .attr('fill','orange')
+        .text(function(d) { return d.city; })
+        .on('mouseover', function(d, i) {
+            //d3.select(this).style('fill', getnodefill);
+            statusText.text(d.city).attr("transform", function() { return "translate(" + proj([d.lng+0.2, d.lat+0.2]) + ")"; });
+        }).on('mouseout', function(d, i) {
+            statusText.text('');
+            //d3.select(this).style('fill', getnodefill);
+        })
+        .attr("transform", function(d) {
+          return "translate(" + proj([d.lng, d.lat]) + ")";
+        })
+        ;
+      c.exit().remove();
+    }
+
+    function redraw() {
+      // d3.event.translate (an array) stores the current translation from the parent SVG element
+      // t (an array) stores the projection's default translation
+      // we add the x and y vales in each array to determine the projection's new translation
+      var tx = t[0] * d3.event.scale + d3.event.translate[0];
+      var ty = t[1] * d3.event.scale + d3.event.translate[1];
+      proj.translate([tx, ty]);
+
+      // now we determine the projection's new scale, but there's a problem:
+      // the map doesn't 'zoom onto the mouse point'
+      proj.scale(s * d3.event.scale);
+
+      // redraw the map
+      circles.selectAll("circle").attr('r', function() { return 2 * d3.event.scale; } )
+        .attr("transform", function() { return "translate(" + proj([this.__data__.lng, this.__data__.lat]) + ")"; });
+      china.selectAll("path").attr("d", path);
+    }
+    
+    function dblclick(d) {
+ var x, y, k;
+ if (d && centered !== d) {
+   var centroid = path.centroid(d);
+   x = centroid[0];
+   y = centroid[1];
+   k = 4;
+   centered = d;
+ } else {
+   x = w / 2;
+   y = h / 2;
+   k = 1;
+   centered = null;
+ }
+ china.selectAll("path")
+     .classed("active", centered && function(d) { return d === centered; });
+ china.transition()
+     .duration(1000)
+     .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+     .style("stroke-width", 1.5 / k + "px");
+}
+ </script>
+</body>
+</html>

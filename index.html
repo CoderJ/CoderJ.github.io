@@ -3,6 +3,8 @@
   <title>CoderJ's Blog</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/base.css">
   <script type="text/javascript" src="javascripts/d3.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/gsap.min.js"></script>
 </head>
 <body>
   <div class="logo">
@@ -10,6 +12,7 @@
 <script type="text/javascript">
 var drawLogo = function(back){
   var logo = d3.select(".logo").append("svg");
+  d3.select(".logo").style("margin-top",(document.body.clientHeight-210)/2+"px");
   //数据
   var line1 = [
     [0,0],[135,0],[135,50],[50,50],[50,150],[200,150],[200,200],[0,200],[0,0]
@@ -22,6 +25,7 @@ var drawLogo = function(back){
   //把path扔到容器中，并给d赋属性
   var data = [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]];
   var i = 0;
+  var time = 50;
   var drawLine = function(path,data,i,line,callback){
     if(i == 9){
       callback();
@@ -33,7 +37,7 @@ var drawLogo = function(back){
     i = i+1;
     path
       .transition()
-      .duration(500)
+      .duration(time)
       .ease('linear')
       .attr("d", lineFunction(data))
       .each("end", function() { drawLine(path,data,i,line,callback);});
@@ -58,8 +62,8 @@ var drawLogo = function(back){
       .duration(2000)
       .ease('cubic-out')
       .attr('fill','#FFF')
-      .each("end", function() { if(back)back();});
-    },1000);
+      .each("end", function() { if(back)back(); back = 0;});
+    },time*2);
   }
   var lineGraph1 = logo.append("g")
                 .append("path")
@@ -70,6 +74,9 @@ var drawLogo = function(back){
   drawLine(lineGraph1,data,1,line1,drawLine2);
 }
 drawLogo(function(){
+
+
+
 });
 
 

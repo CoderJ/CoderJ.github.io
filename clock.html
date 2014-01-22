@@ -162,9 +162,11 @@
         left:l,
         top:t
       });
-
+    var dd = new Date();
+    var hh = dd.getHours();
+    var mm = dd.getMinutes();
       if(i%60 == 1 && i>1){
-        $(".hm span").html(h+" "+parseInt(m+i/60));
+        $(".hm span").html(hh+" "+mm);
       }
       setTimeout(function(){
         ani(i+1);

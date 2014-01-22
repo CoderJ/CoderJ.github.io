@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CLOCK</title>
+  <style>
+  html{
+    width: 100%;
+    height: 100%;
+    background: #333;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+  }
+  body{
+    width: 100%;
+    height: 100%;
+    background: #333;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+  }
+  .position{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    top: 50%;
+    left: 50%;
+  }
+  .dial{
+    position: absolute;
+    top: -320px;
+    left: -320px;
+    width: 600px;
+    height: 600px;
+    border-radius:600px;
+    background: #EEE; 
+    border: 20px solid #FFF;
+    box-shadow: inset 0px 0px 5px #AAA,0px 0px 20px #000;
+    overflow: hidden;
+  }
+  .pointer{
+    position: absolute;
+    left: 298px;
+    top: 0px;
+    bottom: 0px;
+    right: 298px;
+    background: #F00;
+    z-index: 100;
+    box-shadow: 0px 0px 2px #AAA;
+    transition:1s linear;
+    -webkit-transition:1s linear;
+    -moz-transition:1s linear;
+    -o-transition:1s linear;
+    -ms-transition:1s linear;
+  }
+  .graduation{
+    position: absolute;
+    top: 0px;
+    width: 1px;
+    left:0px;
+    height: 1px;
+    transition:1s linear;
+    -webkit-transition:1s linear;
+    -moz-transition:1s linear;
+    -o-transition:1s linear;
+    -ms-transition:1s linear;
+  }
+  .graduation b{
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    top: 20px;
+    left:300px;
+    background: #000;
+  }
+  .graduation b.i{
+    width: 4px;
+    height: 40px;
+  }
+  .graduation b span{
+    display: none;
+  }
+  .graduation b.i span{
+    display: block;
+    width: 64px;
+    height: 64px;
+    overflow: visible;
+    text-align: center;
+    font-size: 70px;
+    top: 30px;
+    left: -30px;
+    position: absolute;
+  }
+  .hm{
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    top: 370px;
+    left: 0px;
+  }
+  .hm span{
+    position: absolute;
+    display: block;
+    width: 300px;
+    height: 200px;
+    top: 0px;
+    left: -150px;
+    line-height: 200px;
+    font-size: 100px;
+    color: #000;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+<div class="position">
+  <div class="dial">
+    <div class="pointer">    
+    <div class="hm">
+      <span></span>
+    </div>
+</div>
+    <div class="graduation"></div>
+  </div>
+</div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+    for(i=1;i<=60;i++){
+      var gra = $("<b><span>"+i/5+"</span></b>");
+      if(i%5 == 0){
+        gra.addClass("i");
+      }
+      gra.css('transform','rotate('+i*6+'deg)');
+      var l = Math.sin(2*Math.PI/360*i*6)*440+300;
+      if(i%5 == 0){
+        var t = -Math.cos(2*Math.PI/360*i*6)*440+285;
+      }else{
+        var l = Math.sin(2*Math.PI/360*i*6)*450+300;
+        var t = -Math.cos(2*Math.PI/360*i*6)*450+300;
+      }
+      gra.css({
+        left:l,
+        top:t
+      });
+      gra.appendTo($(".graduation"));
+
+    }
+    var d = new Date();
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+    var gra = $(".graduation");
+    var pointer = $(".pointer");
+    var hm = $(".hm");
+    var ani = function(i){
+        var l = -Math.sin(2*Math.PI/360*i*6)*300+0;
+        var t = Math.cos(2*Math.PI/360*i*6)*300;
+      pointer.css('transform','rotate('+i*6+'deg)');
+      gra.css({
+        left:l,
+        top:t
+      });
+
+      if(i%60 == 1 && i>1){
+        $(".hm span").html(h+" "+parseInt(m+i/60));
+      }
+      setTimeout(function(){
+        ani(i+1);
+      },1000);
+    }
+
+
+    $(".hm span").html(h+" "+m);
+    ani(s);
+
+
+  });
+</script>
+</body>
+</html>

@@ -149,7 +149,9 @@
     }
     var d = new Date();
     var h = d.getHours();
+    h = h<10?'0'+h:h;
     var m = d.getMinutes();
+    m = m<10?'0'+m:m;
     var s = d.getSeconds();
     var gra = $(".graduation");
     var pointer = $(".pointer");
@@ -164,7 +166,9 @@
       });
     var dd = new Date();
     var hh = dd.getHours();
+    hh = hh<10?'0'+hh:hh;
     var mm = dd.getMinutes();
+    mm = mm<10?'0'+mm:mm;
       if(i%60 == 1 && i>1){
         $(".hm span").html(hh+" "+mm);
       }

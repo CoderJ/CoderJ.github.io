@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loading Animate Demo</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<style type="text/css">
+	body{
+		text-align: center;
+		padding: 0px;
+		margin: 0;
+	}
+	.loading{
+		margin: 30px auto;
+	}
+	#loading{
+		width: 84px;
+		height: 84px;
+		position: relative;
+	}
+	#loading b{
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		-webkit-transition: all 0.5s;
+		border-radius: 2px;
+		background: #123;
+	}
+	#loading b.on{
+		-webkit-transform: scale(1.2);
+		box-shadow: 0px 0px 1px #000;
+	}
+
+
+@-webkit-keyframes ani{
+from {
+}
+to {
+}
+}
+	#ld2{
+		width: 0px;
+		height: 0px;
+		position: relative;
+		border-color:#F00;
+		border-style: solid; 
+		-webkit-animation: 1s ani 0s infinite alternate;
+	}
+
+
+	.loading2{
+		width: 100px;
+		height: 100px;
+		border-radius: 50px;
+		background: #F00;
+		margin: 20px auto;
+		position: relative;
+	}
+	.loading2 b{
+		display: block;
+		width: 10px;
+		height: 10px;
+		border-radius: 5px;
+		background: #FFF;
+		position: absolute;
+
+	}
+@-webkit-keyframes ld2a1{
+from {
+		top: 0px;
+		left: 45px;	
+	}
+	to {
+		top: 90px;
+		left: 45px;
+	}
+}
+	.loading2 b:nth-child(1){
+		top: 0px;
+		left: 45px;
+		-webkit-animation: ld2a1 1s linear 0.75s infinite alternate;
+	}
+@-webkit-keyframes ld2a2{
+from {
+		top: 45px;
+		left: 0px;	
+	}
+	to {
+		top: 45px;
+		left: 90px;
+	}
+}
+	.loading2 b:nth-child(2){
+		top: 45px;
+		left: 0px;
+		-webkit-animation: ld2a2 1s linear 0s infinite alternate;
+	}
+@-webkit-keyframes ld2a3{
+from {
+		top: 14.65px;
+		left: 14.65px;	
+	}
+	to {
+		top: 77.35px;
+		left: 77.35px;
+	}
+}
+	.loading2 b:nth-child(3){
+		top: 14.65px;
+		left: 14.65px;	
+		-webkit-animation: ld2a3 1s linear 2s infinite alternate;
+	}
+@-webkit-keyframes ld2a4{
+from {
+		top: 77.35px;
+		left: 14.65px;	
+	}
+	to {
+		top: 14.65px;
+		left: 77.35px;
+	}
+}
+	.loading2 b:nth-child(4){
+		top: 77.35px;
+		left: 14.65px;	
+		-webkit-animation: ld2a4 1s linear 1.875s infinite alternate;
+	}
+
+	</style>
+</head>
+<body>
+<div id="loading" class="loading"></div>
+<script type="text/javascript">
+	var order = [0,1,2,3,7,11,15,14,13,12,8,4]; 
+	for(i=0;i<12;i++){
+		var x = parseInt(order[i]/4)*21;
+		var y = order[i]%4*21;
+		document.getElementById('loading').innerHTML = document.getElementById('loading').innerHTML+'<b style="top:'+x+'px;left:'+y+'px;" id="loading_'+i+'"></b>';
+	}
+	var ani = function(i){
+		i = i<=0?(i+12):i;
+		document.getElementById("loading_"+(i-1)%12).className = "off";
+		document.getElementById("loading_"+i%12).className = "on";
+		setTimeout(function(){ani(i%12+1)},1000);
+	}
+	ani(0);
+</script>
+
+<div id="ld2" class="loading"></div>
+
+<div class="loading2">
+	<b></b>
+	<b></b>
+	<b></b>
+	<b></b>
+	<b></b>
+	<b></b>
+	<b></b>
+	<b></b>
+</div>
+<script type="text/javascript">
+	
+</script>
+</body>
+</html>

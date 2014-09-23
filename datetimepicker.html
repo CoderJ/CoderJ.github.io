@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Datetimepicker</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/datetimepicker.css">
+	<style type="text/css">
+	input{
+		width: 200px;
+		height: 30px;
+		margin:30px 300px;
+		line-height: 30px;
+		font-size: 14px;
+		text-align: center;
+
+	}
+	</style>
+</head>
+<body>
+<input type="text" value="2013-05-07" />
+<script type="text/javascript" src="javascripts/jquery.js"></script>
+<script type="text/javascript" src="javascripts/datetimepicker.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('input').dtp();
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<html>
+<head>
+  <title>CoderJ's Blog</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/base.css">
+  <script type="text/javascript" src="javascripts/d3.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.js"></script>
+</head>
+<body>
+  <div class="logo">
+  </div>
+<script type="text/javascript">
+var drawLogo = function(back){
+  var logo = d3.select(".logo").append("svg");
+  d3.select(".logo").style("margin-top",(document.body.clientHeight-210)/2+"px");
+  //数据
+  var line1 = [
+    [0,0],[135,0],[135,50],[50,50],[50,150],[200,150],[200,200],[0,200],[0,0]
+  ];
+  var line2 = [
+    [150,0],[200,0],[200,135],[65,135],[65,65],[115,65],[115,85],[150,85],[150,0]
+  ];
+  //线生成器
+  var lineFunction = d3.svg.line().x(function(d) { return d[0]+5; }).y(function(d) { return d[1]+5; }).interpolate('step');
+  //把path扔到容器中，并给d赋属性
+  var data = [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]];
+  var i = 0;
+  var time = 500;
+  var drawLine = function(path,data,i,line,callback){
+    if(i == 9){
+      callback();
+      return false;
+    }
+    for(j=i;j<9;j++){
+      data[j] = line[i];
+    }
+    i = i+1;
+    path
+      .transition()
+      .duration(time)
+      .ease('linear')
+      .attr("d", lineFunction(data))
+      .each("end", function() { drawLine(path,data,i,line,callback);});
+  }
+
+  var drawLine2 = function(){
+      var data = [[150,0],[150,0],[150,0],[150,0],[150,0],[150,0],[150,0],[150,0],[150,0]];
+      var lineGraph2 = logo.append("g")
+                  .append("path")
+                  .attr("d", lineFunction(data))
+                  .attr('fill','none')
+                  .attr("stroke", "#669900")
+                  .attr("stroke-width", 1);
+                  drawLine(lineGraph2,data,1,line2,filled);
+  }
+  var filled = function(){
+    setTimeout(function(){
+      d3.select('body').transition().duration(2000).ease('cubic-out').style('background',"#669900");
+      logo
+      .selectAll("path")
+      .transition()
+      .duration(2000)
+      .ease('cubic-out')
+      .attr('fill','#FFF')
+      .each("end", function() { if(back)back(); back = 0;});
+    },time*2);
+  }
+  var lineGraph1 = logo.append("g")
+                .append("path")
+                .attr("d", lineFunction(data))
+                .attr('fill','none')
+                .attr("stroke", "#669900")
+                .attr("stroke-width", 1);
+  drawLine(lineGraph1,data,1,line1,drawLine2);
+}
+drawLogo(function(){
+
+
+
+});
+
+
+</script>
+</body>
+</html>

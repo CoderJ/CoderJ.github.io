@@ -1,85 +1,310 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>CoderJ's Blog</title>
-  <link rel="stylesheet" type="text/css" href="stylesheets/base.css">
-  <script type="text/javascript" src="javascripts/d3.min.js"></script>
-  <script type="text/javascript" src="javascripts/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/gsap.min.js"></script>
+	<title>Coder J's JS Blog</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+	<script type="text/javascript" src="javascripts/d3.min.js"></script>
 </head>
 <body>
-  <div class="logo">
-  </div>
+<div class="container index">
+	<header>
+		<div class="mainLogo"></div>
+	</header>
+	<div class="nav"></div>
+	<nav>
+		<a><b>Index</b><b>Index</b></a>
+		<a><b>Note</b><b>Note</b></a>
+		<a><b>Demo</b><b>Demo</b></a>
+		<a><b>Contact</b><b>Contact</b></a>
+		<div class="logo">
+			<b></b>
+			<b></b>
+			<b></b>
+			<b></b>
+			<b></b>
+			<b></b>
+		</div>	
+	</nav>
+	<article>
+		<h1>This is CoderJ's Blog.</h1>
+		<br /><br /><br />
+		<h2>正在建设中...</h2>
+	</article>
+</div>
+<div class="container note">
+	<h1>Note</h1>
+	<article>
+		<h2>这里是笔记的标题</h2>
+		<time datetime="2014-09-23" pubdate="pubdate">2014-09-23</time>
+		<p>
+		这里是笔记的内容啊，内容啊，内容啊
+		</p>
+	</article>
+	<article>
+		<h2>这里是笔记的标题</h2>
+		<time datetime="2014-09-23" pubdate="pubdate">2014-09-23</time>
+		<p>
+		这里是笔记的内容啊，内容啊，内容啊
+		</p>
+	</article>
+	<article>
+		<h2>这里是笔记的标题</h2>
+		<time datetime="2014-09-23" pubdate="pubdate">2014-09-23</time>
+		<p>
+		这里是笔记的内容啊，内容啊，内容啊
+		</p>
+	</article>
+	<article>
+		<h2>这里是笔记的标题</h2>
+		<time datetime="2014-09-23" pubdate="pubdate">2014-09-23</time>
+		<p>
+		这里是笔记的内容啊，内容啊，内容啊
+		</p>
+	</article>
+	<article>
+		<h2>这里是笔记的标题</h2>
+		<time datetime="2014-09-23" pubdate="pubdate">2014-09-23</time>
+		<p>
+		这里是笔记的内容啊，内容啊，内容啊
+		</p>
+	</article>
+	<article>
+		<h2>这里是笔记的标题</h2>
+		<time datetime="2014-09-23" pubdate="pubdate">2014-09-23</time>
+		<p>
+		这里是笔记的内容啊，内容啊，内容啊
+		</p>
+	</article>
+	<article>
+		<h2>这里是笔记的标题</h2>
+		<time datetime="2014-09-23" pubdate="pubdate">2014-09-23</time>
+		<p>
+		这里是笔记的内容啊，内容啊，内容啊
+		</p>
+	</article>
+	<article>
+		<h2>这里是笔记的标题</h2>
+		<time datetime="2014-09-23" pubdate="pubdate">2014-09-23</time>
+		<p>
+		这里是笔记的内容啊，内容啊，内容啊
+		</p>
+	</article>
+	<article>
+		<h2>这里是笔记的标题</h2>
+		<time datetime="2014-09-23" pubdate="pubdate">2014-09-23</time>
+		<p>
+		这里是笔记的内容啊，内容啊，内容啊
+		</p>
+	</article>
+	<article>
+		<h2>这里是笔记的标题</h2>
+		<time datetime="2014-09-23" pubdate="pubdate">2014-09-23</time>
+		<p>
+		这里是笔记的内容啊，内容啊，内容啊
+		</p>
+	</article>
+</div>
+<div class="container demo">
+	<h1>Demo</h1>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>		
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>		
+	</ul>
+</div>
+<div class="container contact">
+	<h1>Contact</h1>
+<dl>
+	<dt>GITHUB</dt>
+	<dd><a href="//github.com/coderj">github.com/coderj</a></dd>
+	<dt>WEIBO</dt>
+	<dd><a href="//weibo.com/coderj">weibo.com/coderj</a></dd>
+	<dt>QQ</dt>
+	<dd>522741088</dd>
+	<dt>E-mail</dt>
+	<dd>coderj@foxmail.com</dd>
+	<dt>WECHAT</dt>
+	<dd><div class="qrcode"></div></dd>
+</dl>
+</div>
+<script type="text/javascript" src="javascripts/jquery.js"></script>
+<script type="text/javascript" src="javascripts/jquery.qrcode.min.js"></script>
 <script type="text/javascript">
-var drawLogo = function(back){
-  var logo = d3.select(".logo").append("svg");
-  d3.select(".logo").style("margin-top",(document.body.clientHeight-210)/2+"px");
-  //数据
-  var line1 = [
-    [0,0],[135,0],[135,50],[50,50],[50,150],[200,150],[200,200],[0,200],[0,0]
-  ];
-  var line2 = [
-    [150,0],[200,0],[200,135],[65,135],[65,65],[115,65],[115,85],[150,85],[150,0]
-  ];
-  //线生成器
-  var lineFunction = d3.svg.line().x(function(d) { return d[0]+5; }).y(function(d) { return d[1]+5; }).interpolate('step');
-  //把path扔到容器中，并给d赋属性
-  var data = [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]];
-  var i = 0;
-  var time = 500;
-  var drawLine = function(path,data,i,line,callback){
-    if(i == 9){
-      callback();
-      return false;
-    }
-    for(j=i;j<9;j++){
-      data[j] = line[i];
-    }
-    i = i+1;
-    path
-      .transition()
-      .duration(time)
-      .ease('linear')
-      .attr("d", lineFunction(data))
-      .each("end", function() { drawLine(path,data,i,line,callback);});
-  }
+$(function(){
+	var time = 500;
+	var drawLogo = function(back){
+	  var logo = d3.select(".mainLogo").append("svg").style({
+	  	width:210,
+	  	height:210
+	  });
+	  //数据
+	  var line1 = [
+	    [0,0],[135,0],[135,50],[50,50],[50,150],[200,150],[200,200],[0,200],[0,0]
+	  ];
+	  var line2 = [
+	    [150,0],[200,0],[200,135],[65,135],[65,65],[115,65],[115,85],[150,85],[150,0]
+	  ];
+	  //线生成器
+	  var lineFunction = d3.svg.line().x(function(d) { return d[0]+5; }).y(function(d) { return d[1]+5; }).interpolate('step');
+	  //把path扔到容器中，并给d赋属性
+	  var data = [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]];
+	  var i = 0;
+	  var drawLine = function(path,data,i,line,callback){
+	    if(i == 9){
+	      callback();
+	      return false;
+	    }
+	    for(j=i;j<9;j++){
+	      data[j] = line[i];
+	    }
+	    i = i+1;
+	    path
+	      .transition()
+	      .duration(time)
+	      .ease('linear')
+	      .attr("d", lineFunction(data))
+	      .each("end", function() { drawLine(path,data,i,line,callback);});
+	  }
 
-  var drawLine2 = function(){
-      var data = [[150,0],[150,0],[150,0],[150,0],[150,0],[150,0],[150,0],[150,0],[150,0]];
-      var lineGraph2 = logo.append("g")
-                  .append("path")
-                  .attr("d", lineFunction(data))
-                  .attr('fill','none')
-                  .attr("stroke", "#669900")
-                  .attr("stroke-width", 1);
-                  drawLine(lineGraph2,data,1,line2,filled);
-  }
-  var filled = function(){
-    setTimeout(function(){
-      d3.select('body').transition().duration(2000).ease('cubic-out').style('background',"#669900");
-      logo
-      .selectAll("path")
-      .transition()
-      .duration(2000)
-      .ease('cubic-out')
-      .attr('fill','#FFF')
-      .each("end", function() { if(back)back(); back = 0;});
-    },time*2);
-  }
-  var lineGraph1 = logo.append("g")
-                .append("path")
-                .attr("d", lineFunction(data))
-                .attr('fill','none')
-                .attr("stroke", "#669900")
-                .attr("stroke-width", 1);
-  drawLine(lineGraph1,data,1,line1,drawLine2);
-}
-drawLogo(function(){
+	  var drawLine2 = function(){
+	      var data = [[150,0],[150,0],[150,0],[150,0],[150,0],[150,0],[150,0],[150,0],[150,0]];
+	      var lineGraph2 = logo.append("g")
+	                  .append("path")
+	                  .attr("d", lineFunction(data))
+	                  .attr('fill','none')
+	                  .attr("stroke", "#0099cc")
+	                  .attr("stroke-width", 1);
+	                  drawLine(lineGraph2,data,1,line2,filled);
+	  }
+	  var filled = function(){
+	    setTimeout(function(){
+	      d3.select('header').transition().duration(2000).ease('cubic-out').style('background',"#0099cc");
+	      logo
+	      .selectAll("path")
+	      .transition()
+	      .duration(2000)
+	      .ease('cubic-out')
+	      .attr('fill','#FFF')
+	      .attr('stroke','#FFF')
+	      .each("end", function() { if(back)back(); back = 0;});
+	    },time*2);
+	  }
+	  var lineGraph1 = logo.append("g")
+	                .append("path")
+	                .attr("d", lineFunction(data))
+	                .attr('fill','none')
+	                .attr("stroke", "#0099cc")
+	                .attr("stroke-width", 1);
+	  drawLine(lineGraph1,data,1,line1,drawLine2);
+	}
 
+	var navEvent = function(){
+		var offset = [];
+		var navHeight = 50;
+		var nowPlace = 0;
+		if($("body").scrollTop()>=350){
+			$("nav, div.nav").addClass("fixed");
+		}else{
+			$("nav, div.nav").removeClass("fixed");
+		}	
+		var changeNav = function(i){
+			$("nav a:eq("+i+")").addClass("on").siblings("a").removeClass("on");
+			$("header").css("background",$("nav a:eq("+i+")").css("color"));
+			$("nav .logo b").css("background",$("nav a:eq("+i+")").css("color"));
 
+		}
+		setTimeout(function(){
+			$(".container").each(function(i,e){
+				offset.push($(this).offset().top);
+			});
+			for(i in offset){
+				if($("body").scrollTop()>=offset[i]-navHeight){
 
-});
+					nowPlace = i;
+					changeNav(nowPlace);
+				}else{
+					break;
+				}
+			}
+			$(window).on("scroll",function(){
+				if($("body").scrollTop()>=350){
+					$("nav, div.nav").addClass("fixed");
+				}else{
+					$("nav, div.nav").removeClass("fixed");
+				}
+				if(offset[parseInt(nowPlace)+1]){
+					if($("body").scrollTop()>=offset[parseInt(nowPlace)+1]-navHeight){
+						nowPlace++;
+						changeNav(nowPlace);
+					}				
+				}
 
+				if($("body").scrollTop()<offset[nowPlace]-navHeight){
+					nowPlace = (nowPlace-1>0)?nowPlace-1:0;
+					changeNav(nowPlace);
+				}
+			});
+		},350);		
 
+		$("nav").on("click","a",function(){
+			$(this).addClass("on").siblings("a").removeClass("on");
+			$("header").css("background",$(this).css("color"));
+			$("nav .logo b").css("background",$(this).css("color"));
+			var place = $.inArray(this,$(this).parent().children());
+			if(place < 0){
+				var st = 0;
+			}else{
+				var st = $(".container:eq("+place+")").offset().top;
+			}
+			nowPlace = place+1;
+			if(nowPlace>=offset.length-1){
+				nowPlace--;
+			}
+			$("body").animate({scrollTop:st},300);
+		});
+	};
+
+	$(".qrcode").qrcode({
+	    render: 'div',
+	    ecLevel: 'M',
+	    size: 200,
+	    fill: '#ff8800',
+	    text: 'http://weixin.qq.com/r/6dgJEbfEiOr3rfNy9437',
+	});
+
+	if($(window).scrollTop()>0 || localStorage.getItem("animate") == 1){
+		$("header").css({
+			background:'#0099cc'
+		});
+		$("<div></div>").addClass("logo").appendTo(".mainLogo");
+		for(i=1;i<7;i++){
+			$(".mainLogo .logo").append("<b></b>");
+		}
+		$("header").height(350);
+		$("header").css("transition","all 0.3s");	
+		navEvent();
+	}else{
+		$("body").height($(window).height()).css("overflow","hidden");
+		$("header").height($(window).height());	
+		drawLogo(function(){
+			$("body").height('auto').css("overflow","auto");
+			$("header").height(350);
+			$("header").css("transition","all 0.3s");
+			localStorage.setItem("animate",1);
+			navEvent();
+		});		
+	}
+})
 </script>
 </body>
 </html>

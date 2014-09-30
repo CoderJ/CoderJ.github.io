@@ -14,6 +14,7 @@ module.exports = function(grunt) {
                   'jquery/dist/jquery.min.js',
                   'jquery/dist/jquery.min.map',
                   'd3/d3.min.js',
+                  'marked/marked.min.js',
                   'jquery-qrcode/jquery.qrcode.min.js'
               ], dest: 'javascripts/script_lib'}
           ]

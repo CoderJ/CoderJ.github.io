@@ -1,0 +1,26 @@
+{
+  "name": "CoderJ's Blog",
+  "version": "0.0.5",
+  "homepage": "http://coderj.github.io",
+  "authors": [
+    "jixin <jixin@umeng.com>"
+  ],
+  "description": "My Blog",
+  "dependencies":{
+    "bootstrap":"~3.2.0",
+    "jquery":"~2.1.1",
+    "d3":"~3.4.11",
+    "jquery-qrcode":"*"
+  },
+  "devDependencies":{
+
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "script_lib",
+    "tests"
+  ]
+}

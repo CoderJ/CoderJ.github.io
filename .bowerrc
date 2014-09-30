@@ -1,0 +1,7 @@
+{
+  "directory" : "script_lib",
+  "json"      : "bower.json",
+  "endpoint"  : "",
+  "searchpath"  : "",
+  "shorthand_resolver" : ""
+}

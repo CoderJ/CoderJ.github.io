@@ -8,7 +8,7 @@ module.exports = function(grunt) {
           files: [
               {expand: true, flatten: true, cwd: 'script_lib/', src: [
                   'bootstrap/dist/css/bootstrap.min.css',
-              ], dest: 'stylesheets/script_lib'},
+              ], dest: 'stylesheets/lib'},
               {expand: true, flatten: true, cwd: 'script_lib/', src: [
                   'bootstrap/dist/js/bootstrap.min.js',
                   'jquery/dist/jquery.min.js',
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                   'd3/d3.min.js',
                   'marked/marked.min.js',
                   'jquery-qrcode/jquery.qrcode.min.js'
-              ], dest: 'javascripts/script_lib'}
+              ], dest: 'javascripts/lib'}
           ]
       }
     }

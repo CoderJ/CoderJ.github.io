@@ -1,11 +1,11 @@
 {
-  "name": "CoderJ's Blog",
+  "name": "CoderJ.github.io",
   "version": "0.0.5",
   "homepage": "http://coderj.github.io",
   "authors": [
-    "jixin <jixin@umeng.com>"
+    "CoderJ"
   ],
-  "description": "My Blog",
+  "description": "CoderJ's blog",
   "dependencies":{
     "bootstrap":"~3.2.0",
     "jquery":"~2.1.1",

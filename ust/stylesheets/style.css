@@ -1,0 +1,169 @@
+html,body{
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	color: #454545;
+}
+*{
+	line-height: 1.5;
+	box-sizing:border-box;
+}
+a{
+	color: #FFF;
+}
+header{
+	background-color: #17375e;
+	background-image: url(../images/logo.png);
+	height: 60px;
+	background-repeat: no-repeat;
+	background-size: 300px auto;
+	background-position: center;
+}	
+.main{
+	border-top: 1px solid #8997a9;
+	background-color: #558dd5;
+	color: #FFF;
+	font-size: 1.45em;
+}
+h2, p, h4{
+	padding: 0px 15px;
+}
+.main .ust_pic{
+	width: 100%;
+}
+.partner{
+	color: #0070bf;
+}
+/*.speakers{
+	width: 100%;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+.speakers li{
+	list-style: none;
+	background-color: #fffece;
+	padding:15px;
+}
+.speakers li img{
+	width: 150px;
+}*/
+.speakerSwiper{
+	background-color: #fffece;
+}
+.speakerSwiper .swiper-pagination{
+	bottom: 3px;
+}
+.speakerSwiper .swiper-pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #999;
+}
+.speaker{
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	height: 210px;
+}
+.speaker li{
+	text-align: left;
+	padding: 15px;
+	width: 100%;
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row wrap;
+	height: 210px;
+	background-color: #fffece;
+}
+.speaker li .img{
+	width: 118px;
+}
+.speaker li .img img{
+	width: 118px;
+
+}
+.speaker li .text{
+	flex:1;
+	-webkit-flex:1;
+}
+.speaker li .text h4{
+	margin-top: 0;
+	margin-bottom: 0px;
+}
+.speaker li .text p{
+	font-size: 0.8em;
+	margin: 5px 0;
+	padding-right: 0;
+}
+.guestSwiper{
+	background-color: #EFEFEF;
+}
+.guestSwiper .swiper-pagination{
+	bottom: 3px;
+}
+.guestSwiper .swiper-pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #933837;
+}
+.guest{
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	height: 200px;
+}
+.guest li{
+	text-align: left;
+	padding: 15px;
+	width: 100%;
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row wrap;
+	height: 200px;
+	background-color: #EFEFEF;
+}
+.guest li .img{
+	width: 100px;
+}
+.guest li .img img{
+	width: 100px;
+	border:2px solid #e26c22;
+}
+.guest li .text{
+	flex:1;
+	-webkit-flex:1;
+}
+.guest li .text h4{
+	margin-top: 0;
+	margin-bottom: 0px;
+}
+.guest li .text p{
+	font-size: 0.8em;
+	margin: 5px 0;
+	padding-right: 0;
+}
+.Highlights{
+	padding:5px 0px 5px 0;
+}
+.Highlights:nth-child(2n-1){
+	background-color: #FAFAFA;
+}
+table{
+	padding:10px;
+}
+table tr td{
+	padding:10px 5px;
+}
+table tr:nth-child(2n-1) td{
+	background-color: #EFEFEF;
+}table tr:nth-child(2n) td{
+	background-color: #FAFAFA;
+}
+.red{
+	color: #933837;
+}
+footer{
+	text-align: center;
+	background-color: #19385d;
+	color: #FFF;
+	word-break:break-all;
+	padding: 15px 0;
+}

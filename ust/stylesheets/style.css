@@ -8,6 +8,9 @@ html,body{
 	line-height: 1.5;
 	box-sizing:border-box;
 }
+ul li{
+	list-style: none;
+}
 a{
 	color: #FFF;
 }
@@ -68,22 +71,13 @@ h2, p, h4{
 	text-align: left;
 	padding: 15px;
 	width: 100%;
-	display: -webkit-flex;
-	display: flex;
-	flex-flow: row wrap;
+
 	height: 210px;
 	background-color: #fffece;
-}
-.speaker li .img{
-	width: 118px;
 }
 .speaker li .img img{
 	width: 118px;
 
-}
-.speaker li .text{
-	flex:1;
-	-webkit-flex:1;
 }
 .speaker li .text h4{
 	margin-top: 0;
@@ -114,9 +108,6 @@ h2, p, h4{
 	text-align: left;
 	padding: 15px;
 	width: 100%;
-	display: -webkit-flex;
-	display: flex;
-	flex-flow: row wrap;
 	height: 200px;
 	background-color: #EFEFEF;
 }
@@ -127,10 +118,7 @@ h2, p, h4{
 	width: 100px;
 	border:2px solid #e26c22;
 }
-.guest li .text{
-	flex:1;
-	-webkit-flex:1;
-}
+
 .guest li .text h4{
 	margin-top: 0;
 	margin-bottom: 0px;
@@ -146,15 +134,15 @@ h2, p, h4{
 .Highlights:nth-child(2n-1){
 	background-color: #FAFAFA;
 }
-table{
+table.fee{
 	padding:10px;
 }
-table tr td{
+table.fee tr td{
 	padding:10px 5px;
 }
-table tr:nth-child(2n-1) td{
+table.fee tr:nth-child(2n-1) td{
 	background-color: #EFEFEF;
-}table tr:nth-child(2n) td{
+}table.fee tr:nth-child(2n) td{
 	background-color: #FAFAFA;
 }
 .red{

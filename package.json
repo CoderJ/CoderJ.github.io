@@ -1,19 +1,15 @@
 {
-  "name": "CoderJ.github.io",
-  "version": "0.0.5",
-  "description": "CoderJ's blog",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/CoderJ/CoderJ.github.io.git"
-  },
-  "author": "CoderJ",
-  "bugs": {
-    "url": "https://github.com/CoderJ/CoderJ.github.io/issues"
-  },
-  "homepage": "https://github.com/CoderJ/CoderJ.github.io",
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-copy": "~0.6.0"
-  }
+    "name": "CoderJ.github.io",
+    "version": "0.1.0",
+    "description": "CoderJ's Blog",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/CoderJ/CoderJ.github.io.git"
+    },
+    "author": "CoderJ",
+    "bugs": {
+        "url": "https://github.com/CoderJ/CoderJ.github.io/issues"
+    },
+    "homepage": "https://coderj.github.io"
 }

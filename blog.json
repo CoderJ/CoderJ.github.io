@@ -1,9 +1,7 @@
 {
-	"blog":[
-		{
-			"title":"库管理工具Bower学习"，
-			"time":"2014-09-30",
-			"content":"bower"
-		}
-	]
+    "blog": [{
+        "title": "库管理工具Bower学习",
+        "time": "2014-09-30",
+        "key": "bower"
+    }]
 }

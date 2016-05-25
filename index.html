@@ -32,13 +32,6 @@
 </div>
 <div class="container note">
 	<h1>Note</h1>
-	<article>
-		<h2>这里是笔记的标题</h2>
-		<time datetime="2014-09-23" pubdate="pubdate">2014-09-23</time>
-		<p>
-		这里是笔记的内容啊，内容啊，内容啊
-		</p>
-	</article>
 </div>
 <div class="container demo">
 	<h1>Demo</h1>
@@ -74,6 +67,7 @@
 </div>
 <script type="text/javascript" src="javascripts/lib/jquery.min.js"></script>
 <script type="text/javascript" src="javascripts/lib/jquery.qrcode.min.js"></script>
+<script type="text/javascript" src="javascripts/lib/marked.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	var time = 500;
@@ -239,6 +233,46 @@ $(function(){
 			navEvent();
 		});		
 	}
+
+
+	var renderBlogItem = function(d){
+		return $('<section id="blog-'+d.key+'"><a href="#blog-'+d.key+'">\
+		<h2>'+(d.title||"")+'</h2>\
+		<time datetime="'+d.time+'" pubdate="pubdate">'+d.time+'</time>\
+		<p>\
+		'+(d.desc||"")+'\
+		</p></a>\
+		<article></article>\
+		</section>');
+	}
+
+	$.get('blog.json',function(d){
+		for(i in d.blog){
+			$(".note").append(renderBlogItem(d.blog[i]));
+		}
+
+	});
+
+	var renderFromHash = function(href){
+		if(href.match(/^\#/)){
+			var hash = href.replace(/^#/,'');
+			var type = hash.split("-")[0];
+			if(type == "blog"){
+				renderBlog(hash.replace(/^blog\-/,''));
+			}
+		}	
+	}
+	var renderBlog = function(blog){
+		$.get('blog/'+blog+'.md',function(d){
+			var content = $(marked(d));
+			$("#blog-"+blog).find("article").empty().append(content);
+			$("#blog-"+blog).addClass('full-article');
+		});
+	}
+	$("body").on("click","a",function(){
+		var href = $(this).attr("href");
+		renderFromHash(href);
+	});
 })
 </script>
 </body>

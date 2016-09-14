@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            抢月饼大作战
+        </title>
+        <meta content="text/html;charset=utf-8" http-equiv="content-type"/>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+        <link href="stylesheets/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+    <header>
+        
+    </header><!-- /header -->
+    <section class="item-pic">
+        
+    </section>
+    <h2 class="item-title">【中秋月饼】就是那个抢多了就要被开除的月饼</h2>
+    <ul class="item-desc">
+        <li>这有什么好介绍的，占位</li>
+        <li>这有什么好介绍的，占位</li>
+        <li>这有什么好介绍的，占位</li>
+    </ul>
+    <div class="time-bar"></div>
+    <button class="action-btn disabled">尚未开始</button>
+    <div class="result hidden"></div>
+    <script src="javascripts/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function(){
+            console.info("郑重提醒：\n请不要写脚本抢月饼，否则会被开除！");
+            var reset = function(){
+                $(".result").addClass("hidden");
+                $(".time-bar").removeClass("hidden");
+                $(".action-btn").addClass("disabled").text("尚未开始");
+                var startTime = parseInt(2+(Math.random()*5));
+                var updateStartTime = function(){
+                    startTime--;
+                    if(startTime >= 0){
+                        $(".time-bar").text("还剩"+startTime+"秒开始抢购！");
+                    }else{
+                        start();
+                    }
+                }
+                var timeCounter = setInterval(updateStartTime,1000);
+                var startDate = new Date();
+                var num = 0;
+                var fakeNum = 0;
+                var start = function(){
+                    startDate = new Date();
+                    clearInterval(timeCounter);
+                    $(".time-bar").addClass("hidden");
+                    $(".action-btn").removeClass("disabled").text("马上抢");
+                    var runingTime = parseInt(100+(Math.random()*500));
+                    setTimeout(function(){
+                        $(".action-btn").addClass("disabled").text("已经结束");
+                        showRes(parseFloat(runingTime/1000).toFixed(2),num);
+                    },runingTime);
+                }
+                updateStartTime();
+                $(".action-btn").on("click",function(){
+                    if($(".action-btn").hasClass("disabled")){
+                        fakeNum++;
+                        return false;
+                    }
+                    num++;
+                });
+                var showRes = function(time,times){
+                    $(".result").removeClass("hidden");
+                    if(times == 0){
+                        $(".result").empty();
+                        $(".result").html("<h2>很遗憾</h2>");
+                        $(".result").append("<h4>你啥都没抢到</h4>");
+                        $(".result").append("<p>本次月饼在"+time+"s内被抢购一空，而你的手太慢了,下次努力吧</p>");
+                        $(".result").append("<button>不服,再来</button>");
+                    }
+                    if(times == 1){
+                        $(".result").empty();
+                        $(".result").html("<h2>恭喜你</h2>");
+                        $(".result").append("<h4>你抢到一份月饼</h4>");
+                        $(".result").append("<p>本次月饼在"+time+"s内被抢购一空，你终于抢到一份！</p>");
+                        $(".result").append("<button>不服,再来</button>");
+                    }
+                    if(times > 1){
+                        $(".result").empty();
+                        $(".result").html("<h2>恭喜你</h2>");
+                        $(".result").append("<h3>你被开除了</h3>");
+                        $(".result").append("<p>本次月饼在"+time+"s内被抢购一空，而你的手速如此之快，居然抢到"+times+"份！很明显你在作弊！领导认为你的价值观有问题，请马上收拾东西回家吧</p>");
+                        $(".result").append("<button>不服,再来</button>");
+                    }
+                    $(".result button").click(function(){
+                        reset();
+                    });
+
+                };
+        
+
+
+
+            }
+
+            reset();
+
+
+        })
+    </script>
+    </body>
+</html>

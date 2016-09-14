@@ -27,7 +27,7 @@
 	}
 	#loading b.on{
 		-webkit-transform: scale(1.2);
-		box-shadow: 0px 0px 1px #000;
+		box-shadow: 0px 0px 1px 0px #000;
 	}
 
 
@@ -56,74 +56,79 @@ to {
 		position: relative;
 	}
 	.loading2 b{
+		position: absolute;
+		width: 10px;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		margin-left: -5px;
+	}
+	.loading2 b:after{
 		display: block;
 		width: 10px;
 		height: 10px;
 		border-radius: 5px;
 		background: #FFF;
 		position: absolute;
-
+		top: 0;
+		left:0;
+		content: " ";
+		-webkit-animation: ld2 0.8s linear 0s infinite alternate;
 	}
-@-webkit-keyframes ld2a1{
+@-webkit-keyframes ld2{
 from {
 		top: 0px;
-		left: 45px;	
-	}
-	to {
-		top: 90px;
-		left: 45px;
-	}
-}
-	.loading2 b:nth-child(1){
-		top: 0px;
-		left: 45px;
-		-webkit-animation: ld2a1 1s linear 0.75s infinite alternate;
-	}
-@-webkit-keyframes ld2a2{
-from {
-		top: 45px;
 		left: 0px;	
 	}
 	to {
-		top: 45px;
-		left: 90px;
+		top: 90px;
+		left: 0px;
 	}
 }
 	.loading2 b:nth-child(2){
-		top: 45px;
-		left: 0px;
-		-webkit-animation: ld2a2 1s linear 0s infinite alternate;
+		-webkit-transform: rotate(22.5deg);
 	}
-@-webkit-keyframes ld2a3{
-from {
-		top: 14.65px;
-		left: 14.65px;	
+	.loading2 b:nth-child(2)::after{
+		-webkit-animation: ld2 0.8s linear 4.9s infinite alternate;
 	}
-	to {
-		top: 77.35px;
-		left: 77.35px;
-	}
-}
 	.loading2 b:nth-child(3){
-		top: 14.65px;
-		left: 14.65px;	
-		-webkit-animation: ld2a3 1s linear 2s infinite alternate;
+		-webkit-transform: rotate(45deg);
 	}
-@-webkit-keyframes ld2a4{
-from {
-		top: 77.35px;
-		left: 14.65px;	
+	.loading2 b:nth-child(3)::after{
+		-webkit-animation: ld2 0.8s linear 3.4s infinite alternate;
 	}
-	to {
-		top: 14.65px;
-		left: 77.35px;
-	}
-}
 	.loading2 b:nth-child(4){
-		top: 77.35px;
-		left: 14.65px;	
-		-webkit-animation: ld2a4 1s linear 1.875s infinite alternate;
+		-webkit-transform: rotate(67.5deg);
 	}
+	.loading2 b:nth-child(4)::after{
+		-webkit-animation: ld2 0.8s linear 5.1s infinite alternate;
+	}
+	.loading2 b:nth-child(5){
+		-webkit-transform: rotate(90deg);
+	}
+	.loading2 b:nth-child(5)::after{
+		-webkit-animation: ld2 0.8s linear 2s infinite alternate;
+	}
+	.loading2 b:nth-child(6){
+		-webkit-transform: rotate(112.5deg);
+	}
+	.loading2 b:nth-child(6)::after{
+		-webkit-animation: ld2 0.8s linear 5.3s infinite alternate;
+	}
+	.loading2 b:nth-child(7){
+		-webkit-transform: rotate(135deg);
+	}
+	.loading2 b:nth-child(7)::after{
+		-webkit-animation: ld2 0.8s linear 3.8s infinite alternate;
+	}
+	.loading2 b:nth-child(8){
+		-webkit-transform: rotate(157.5deg);
+	}
+	.loading2 b:nth-child(8)::after{
+		-webkit-animation: ld2 0.8s linear 5.5s infinite alternate;
+	}
+
 
 	</style>
 </head>
@@ -144,8 +149,6 @@ from {
 	}
 	ani(0);
 </script>
-
-<div id="ld2" class="loading"></div>
 
 <div class="loading2">
 	<b></b>

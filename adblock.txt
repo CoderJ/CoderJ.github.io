@@ -1,2 +1,2 @@
 ^com.baidu.searchbox^
-baidu.com##.tb-backflow,.banner-wrapper,.nav-bar-wrapper
+baidu.com##.banner-wrapper,.nav-bar-wrapper

@@ -1,2 +1,2 @@
-^com.baidu.searchbox^
+^com.baidu^
 baidu.com##.banner-wrapper,.nav-bar-wrapper

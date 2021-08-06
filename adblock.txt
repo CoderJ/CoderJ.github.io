@@ -1,1 +1,2 @@
 ^com.baidu.searchbox^
+^baidu.com##.tb-backflow

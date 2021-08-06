@@ -1,5 +1,1 @@
 ^samsungapps^
-^easybrowse^
-^baiduboxapp^
-baidu.com##.banner-wrapper,.nav-bar-wrapper
-^com.baidu^

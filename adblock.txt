@@ -1,2 +1,2 @@
-^com.baidu.searchbox^
-tieba.baidu.com##.tb-backflow
+^com.baidu.searchbox
+^tieba.baidu.com^##.tb-backflow

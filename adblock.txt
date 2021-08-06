@@ -1,2 +1,4 @@
 ^com.baidu^
 baidu.com##.banner-wrapper,.nav-bar-wrapper
+baiduboxapp^
+^baiduboxapp^
